@@ -59,10 +59,11 @@ def pergunta_numeros():
 
 
 def Calculadora():
-	os.system('title My calculator')
+	os.system('Title My calculator')
 	tela_init()
 
 	resposta = int(input("Resposta:"))
+	Entrada_de_usuario.validacao_da_entrada(resposta)
 
 	if resposta == 0:
 		return
@@ -79,6 +80,21 @@ def Calculadora():
 		b = float(input("Me diga outro numero: "))
 		multiplicar(a, b)
 	elif resposta == 4:
+		a = float(input("Me diga um numero: "))
+		b = float(input("Me diga outro numero: "))
+		dividir(a, b)
 		Calculadora()
+    
+class Entrada_de_usuario():
+	
+	def validacao_da_entrada(resposta):
+		possibilidades_de_resposta = (0,1,2,3,4)
+		if resposta not in possibilidades_de_resposta:
+			apagar_tela()
+			print("Erro, voce inseriu um valor errado")
+			congelar_tela()
+			Calculadora()
+
+
     
 Calculadora()
