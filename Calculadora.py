@@ -1,13 +1,18 @@
 import os
+import time
+
 
 
 x = 1
+
 
 def apagar_tela():
   os.system('cls')
   
 def congelar_tela():
+	time.sleep(5)
 	os.system('timeout /t 60')
+
 
 def tela_init():
   apagar_tela()
@@ -22,50 +27,58 @@ def tela_init():
   print("------------------------------------------------")
   print("Aperte 0 para sair")
 
-def op1():
+
+def somar(a, b):
   apagar_tela()
-  num1 = int(input("Primeiro numero:"))
-  num2 = int(input("Segundo numero:"))
-  print("Essa é a sua soma: ", num1+num2)
+  print("Essa é a sua soma: ", a+b)
   congelar_tela()
+  Calculadora()
 
-def op2():
+def subtrair(a, b):
   apagar_tela()
-  num1 = int(input("Primeiro numero:"))
-  num2 = int(input("Segundo numero:"))
-  print("Essa é a sua subtração: ", num1-num2)
+  print("Essa é a sua subtração: ", a-b)
   congelar_tela()
+  Calculadora()
 
-def op3():
+def multiplicar(a, b):
   apagar_tela()
-  num1 = int(input("Primeiro numero:"))
-  num2 = int(input("Segundo numero:"))
-  print("Essa é a sua multiplicação: ", num1*num2)
+  print("Essa é a sua multiplicação: ", a*b)
   congelar_tela()
+  Calculadora()
 
-
-def op4():
+def dividir(a, b):
   apagar_tela()
-  num1 = int(input("Primeiro numero:"))
-  num2 = int(input("Segundo numero:"))
-  print("Essa é a sua divisão: ", num1/num2)
+  print("Essa é a sua divisão: ", a/b)
   congelar_tela()
+  Calculadora()
+
+def pergunta_numeros():
+	a = float(input("Me diga um numero: "))
+	b = float(input("Me diga outro numero: "))
 
 
-while x == 1:
-  os.system('title My calculator')
-  tela_init()
 
-  resposta = int(input("Resposta:"))
+def Calculadora():
+	os.system('title My calculator')
+	tela_init()
 
-  if resposta == 0:
-    x = 0
-  elif resposta == 1:
-    op1()
-  elif resposta == 2:
-    op2()
-  elif resposta == 3:
-    op3()
-  elif resposta == 4:
-    op4()
+	resposta = int(input("Resposta:"))
+
+	if resposta == 0:
+		return
+	elif resposta == 1:
+		a = float(input("Me diga um numero: "))
+		b = float(input("Me diga outro numero: "))
+		somar(a, b)
+	elif resposta == 2:
+		a = float(input("Me diga um numero: "))
+		b = float(input("Me diga outro numero: "))
+		subtrair(a, b)
+	elif resposta == 3:
+		a = float(input("Me diga um numero: "))
+		b = float(input("Me diga outro numero: "))
+		multiplicar(a, b)
+	elif resposta == 4:
+		Calculadora()
     
+Calculadora()
